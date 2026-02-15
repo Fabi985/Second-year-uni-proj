@@ -17,7 +17,7 @@ can start with things like:
 ***Assign one of these to each i guess***
 
 - The database structure (tables, fields, relationships)
-- User interface sketches for the main pages.
-- Thoughts about user interactions with the HTML
+- User interface sketches for the main pages. - Kane (I will get us 2 to 3 designes we can look over as a group on monday)
+- Thoughts about user interactions with the HTML - Kane (I will include this in any sketches)
 - Database queries (SQL statements) for the main interactions
 - User interface prototypes (built with HTML & CSS)
