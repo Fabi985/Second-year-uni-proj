@@ -8,19 +8,19 @@
 
 ___
 ### Catalog
-| BookID                          | BookTitle | ReleaseDate | BookAbout | BookAuthor | BookPublisher | BookImage | BookStatus | BookSource |
+| BookID                          | BookTitle | ReleaseDate | BookAbout | BookAuthor | BookPublisher | BookImage | BookStatus | BookSource       |
 | ------------------------------- | --------- | ----------- | --------- | ---------- | ------------- | --------- | ---------- | ---------------- |
-| PK, Int, auto increment, unique | String    | DateTime    | String    | String     | String        | String    | String     | String           |
+| PK, Int, auto increment, unique | varchar   | DateTime    | varchar   | varchar    | varchar       | varchar   | varchar    | varchar          |
 ___
 ### Chapters
 | ChapterID                       | BookID  | ChapterName | ChapterRelease |
 | ------------------------------- | ------- | ----------- | -------------- |
-| PK, Int, auto increment, unique | FK, Int | String      | Datetime       |
+| PK, Int, auto increment, unique | FK, Int | varchar     | Datetime      |
 ___
 ### Users
 | UserID                          | UserName | UserPass | DateCreated |
 | ------------------------------- | -------- | -------- | ----------- |
-| PK, Int, Auto increment, Unique | String   | String   | Timestamp   |
+| PK, Int, Auto increment, Unique | varchar  | varchar  | Timestamp   |
 ___
 ### UserBookStatus
 | UserID  | ChapterID |
