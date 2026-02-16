@@ -1,5 +1,5 @@
 # Database Design
-***This includes the following: ***
+***This includes the following:***
 - [Tables](#tables)
 - [Table Fields](#table-fields)
 - [Table Relationships](#relationship-of-tables)
@@ -38,7 +38,7 @@ ___
 
 # Relationship of tables
 ![alt text](DesignAssets/DatabaseDiagram.png)
-***May need to redo***
+
 
 ___
 # Database queries
@@ -58,15 +58,15 @@ WHERE UserName = (?);
 ## Selecting Book cover for the catalog page for a list - tested   
 ```SQL
 SELECT BookTitle, BookImage
-FROM Catalog;
+FROM Books;
 ```
 ## Get specific book page - tested
 ```SQL
 SELECT * 
-FROM Catalog catalog
+FROM Books catBalog
 JOIN Chapters chapters
-ON catalog.BookID = chapters.BookID
-WHERE catalog.BookID = (?);
+ON B.BookID = chapters.BookID
+WHERE B.BookID = (?);
 ```
 ## Get current user chapter in book page - TO DO
 ```SQL
@@ -87,6 +87,6 @@ DELETE FROM UserBookStatus
 WHERE UserID = (?);
 -- Endif
 
-INSERT INTO UserBookStatus (UserID, ChapterID)
+INSERT INTO UserBookStatus (UserID, BookCHPID)
 VALUES (?, ?);
 ```
