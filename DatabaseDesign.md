@@ -37,7 +37,8 @@ ___
 ___
 
 # Relationship of tables
-![alt text](DesignAssets/DatabaseDesignsofar.png)
+![alt text](DesignAssets/DatabaseDiagram.png)
+***May need to redo***
 
 ___
 # Database queries
@@ -67,17 +68,16 @@ JOIN Chapters chapters
 ON catalog.BookID = chapters.BookID
 WHERE catalog.BookID = (?);
 ```
-## Get current user chapter in book page - tested
+## Get current user chapter in book page - TO DO
 ```SQL
-SELECT BookTitle
-FROM Catalog
-WHERE BookID = 
-	(SELECT BookID 
-	FROM Chapters 
-	WHERE ChapterID = 
-		(SELECT ChapterID
-		FROM UserBookStatus
-		WHERE UserID = (?) AND ChapterID = (?)));
+SELECT BookTitle, ChapterName
+FROM Books B
+JOIN Chapters CHP
+ON B.BookID = CHP.BookID
+WHERE B.BookID = (bookid?) AND CHP.BookCHPID = (
+	SELECT BookCHPID
+	FROM UserBookStatus
+	WHERE UserID = (userid?) AND BookID = (bookid?));
 ```
 
 ## Adding to current session user favourites
