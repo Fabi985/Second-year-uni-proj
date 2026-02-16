@@ -1,3 +1,11 @@
+# Database Design
+***This includes the following:***
+- [Tables](#tables)
+- [Table Fields](#table-fields)
+- [Table Relationships](#relationship-of-tables)
+- [Database Queries](#database-queries)
+
+___
 ### Tables:
 - Catalog
 - Chapters
@@ -28,7 +36,7 @@ ___
 | FK, Int | FK, Int   |
 ___
 
-# Relationship of databases
+# Relationship of tables
 ![alt text](DesignAssets/DatabaseDesignsofar.png)
 
 ___
