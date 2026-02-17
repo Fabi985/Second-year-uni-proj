@@ -39,7 +39,7 @@ ___
 # Relationship of tables
 ![alt text](DesignAssets/DatabaseDiagram.png)
 
-***Favouriting books and shows in profile***
+***TODO: add Favouriting books and shows in profile***
 
 
 ___
