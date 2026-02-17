@@ -39,6 +39,8 @@ ___
 # Relationship of tables
 ![alt text](DesignAssets/DatabaseDiagram.png)
 
+***Favouriting books and shows in profile***
+
 
 ___
 # Database queries
@@ -83,10 +85,16 @@ WHERE B.BookID = (bookid?) AND CHP.BookCHPID = (
 ## Adding to current session user favourites
 ```SQL
 -- If statement before this query
-DELETE FROM UserBookStatus
+DELETE FROM UserBookStatus -- USE UPDATE INSTEAD
 WHERE UserID = (?) AND BookCHPID = (?);
 -- Endif
 
 INSERT INTO UserBookStatus (UserID, BookCHPID)
 VALUES (?, ?);
 ```
+
+## Deleting accounts
+
+## Adding books to favourites
+
+## Removing books from favourites
