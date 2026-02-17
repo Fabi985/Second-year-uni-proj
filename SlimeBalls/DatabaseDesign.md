@@ -10,7 +10,7 @@ ___
 - Catalog
 - Chapters
 - Users
-- UserBookStatus
+- CurrentlyReading
 
 ### Table fields:
 
@@ -30,16 +30,19 @@ ___
 | ------------------------------- | ----------- | ----------- | ----------- |
 | PK, Int, Auto increment, Unique | varchar(50) | varchar(50) | Timestamp   |
 ___
-### UserBookStatus
+### CurrentlyReading
 | UserID  | BookCHPID | BookID  |
 | ------- | --------- | ------- |
 | FK, Int | FK, Int   | ??, Int |
 ___
+### Favourites
+| UserID  | BookId  |
+| ------- | ------- | 
+| FK, Int | FK, Int | 
+___
 
 # Relationship of tables
 ![alt text](DesignAssets/DatabaseDiagram.png)
-
-***TODO: add favorite books table***
 
 
 ___
@@ -65,7 +68,7 @@ FROM Books;
 ## Get specific book page
 ```SQL
 SELECT * 
-FROM Books catBalog
+FROM Books B
 JOIN Chapters chapters
 ON B.BookID = chapters.BookID
 WHERE B.BookID = (?);
@@ -78,18 +81,19 @@ JOIN Chapters CHP
 ON B.BookID = CHP.BookID
 WHERE B.BookID = (bookid?) AND CHP.BookCHPID = (
 	SELECT BookCHPID
-	FROM UserBookStatus
+	FROM CurrentlyReading
 	WHERE UserID = (userid?) AND BookID = (bookid?));
 ```
 
 ## Adding to current session user favourites
 ```SQL
 -- If statement before this query
-DELETE FROM UserBookStatus -- USE UPDATE INSTEAD
-WHERE UserID = (?) AND BookCHPID = (?);
+UPDATE CurrentlyReading
+SET BookCHPId
+WHERE UserId = (?) AND BookId = (?)
 -- Endif
 
-INSERT INTO UserBookStatus (UserID, BookCHPID)
+INSERT INTO CurrentlyReading (UserID, BookCHPID)
 VALUES (?, ?);
 ```
 
