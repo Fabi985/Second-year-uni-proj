@@ -18,9 +18,9 @@ Returns index page & database query for recently added books
 
 #### GET /Catologue
 
-#### GET /Catologue/Book?bookId
+#### GET /Catologue/:bookId
 
-#### GET /profile/profile?userId
+#### GET /profile/:userId
 
 #### GET /help
 
@@ -32,5 +32,6 @@ Returns index page & database query for recently added books
 
 #### POST /signup
 
-#### POST /catalogue/book/pages
+#### POST /catalogue/book/:bookId:bookChpId
 
+#### Post /catalogue/book/:bookId
