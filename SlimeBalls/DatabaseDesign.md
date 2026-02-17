@@ -92,9 +92,6 @@ UPDATE CurrentlyReading
 SET BookCHPId
 WHERE UserId = (?) AND BookId = (?)
 -- Endif
-
-INSERT INTO CurrentlyReading (UserID, BookCHPID)
-VALUES (?, ?);
 ```
 
 ## Deleting accounts
