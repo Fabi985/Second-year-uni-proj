@@ -53,6 +53,11 @@ This url points to the sighnup page.
 The server would return the static signup page html file.
 This is a 'GET' request and is therfore safe, this should not effect the state of the database, it only reads information from the database.
 
+#### POST /Login
+This url points to the login page.
+The server would send data to the detabase to indicate which users is logged in on that client.
+This is a 'POST' request and is therfore unsafe, this will effect the structure of the database, and will try to add data to it.
+
 #### POST /signup
 This url points to the signup page.
 The server would try to create/add an account to the database using the details that were inputted by the user.
