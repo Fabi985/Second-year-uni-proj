@@ -24,4 +24,13 @@ Returns index page & database query for recently added books
 
 #### GET /help
 
-#### GET / 
+#### GET /about
+
+#### GET /favourites
+
+#### GET /login
+
+#### POST /signup
+
+#### POST /catalogue/book/pages
+
