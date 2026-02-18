@@ -54,7 +54,7 @@ The server would return the static signup page html file.
 This is a 'GET' request and is therfore safe, this should not effect the state of the database, it only reads information from the database.
 
 #### POST /Login
-This url points to the login page.
+This url points to the login page
 The server would send data to the detabase to indicate which users is logged in on that client.
 This is a 'POST' request and is therfore unsafe, this will effect the structure of the database, and will try to add data to it.
 
@@ -72,3 +72,4 @@ This is a 'POST' request and is therfore unsafe, this will effect the structure 
 This url points to a specified book.
 The server would try to insert a book into the favourites tablie within the database.
 This is a 'POST' request and is therfore unsafe, this will effect the structure of the database, and will try to add data to it.
+ 
