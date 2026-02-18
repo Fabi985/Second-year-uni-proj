@@ -109,7 +109,7 @@ CREATE TABLE "Favourites" (
 ___
 
 # Relationship of tables
-![alt text](DBDesignAssets/DatabaseDiagram.png)
+![alt text](DatabaseDiagram.png)
 ___
 # Queries required:
 ## Route('/'):
