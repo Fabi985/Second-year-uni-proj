@@ -110,10 +110,22 @@ h2{
   padding: 5px;
 }
 
-
-
-.middle, image {  
- width: 100;
- padding: 50px;
- 
+.imageA {  
+padding: 20px;
+background-color: #333333;
 }
+
+.imageB {
+  padding: 20px;
+  background-color: #333333;
+}
+
+.imageA:hover{
+  background-color: #4CAF50;
+}
+
+.imageB:hover{
+  background-color: #4CAF50;
+}
+
+
