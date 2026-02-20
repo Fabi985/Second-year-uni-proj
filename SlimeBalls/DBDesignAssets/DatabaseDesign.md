@@ -49,8 +49,8 @@ ___
 CREATE TABLE "Users" (
 	"UserId"	INTEGER NOT NULL UNIQUE,
 	"Username"	TEXT NOT NULL UNIQUE,
-	"UserPass"	TEXT,
-	"DateCreated"	TEXT,
+	"UserPass"	TEXT NOT NULL,
+	"DateCreated"	TEXT NOT NULL,
 	PRIMARY KEY("UserId" AUTOINCREMENT)
 );
 ```
@@ -60,14 +60,14 @@ CREATE TABLE "Users" (
 -- CREATING THE BOOKS TABLE
 CREATE TABLE "Books" (
 	"BookId"	INTEGER NOT NULL UNIQUE,
-	"BookTitle"	TEXT,
-	"ReleaseDate"	TEXT,
-	"BookAbout"	TEXT,
-	"BookAuthor"	TEXT,
-	"BookPublisher"	TEXT,
-	"BookImage"	TEXT,
-	"BookStatus"	TEXT,
-	"BookSource"	TEXT,
+	"BookTitle"	TEXT NOT NULL,
+	"ReleaseDate"	TEXT NOT NULL,
+	"BookAbout"	TEXT NOT NULL,
+	"BookAuthor"	TEXT NOT NULL,
+	"BookPublisher"	TEXT NOT NULL,
+	"BookImage"	TEXT NOT NULL,
+	"BookStatus"	TEXT NOT NULL,
+	"BookSource"	TEXT NOT NULL,
 	PRIMARY KEY("BookId" AUTOINCREMENT)
 );
 ```
@@ -76,12 +76,12 @@ CREATE TABLE "Books" (
 ```SQL
 -- CREATING THE CHAPTERS TABLE
 CREATE TABLE "Chapters" (
-	"BookChpId"	INTEGER,
-	"BookId"	INTEGER,
-	"ChapterName"	TEXT,
-	"ChapterRelease"	TEXT,
-	FOREIGN KEY("BookId") REFERENCES "Books"("BookId"),
-	PRIMARY KEY("BookChpId","BookId")
+	"BookChpId"	INTEGER NOT NULL,
+	"BookId"	INTEGER NOT NULL,
+	"ChapterName"	TEXT NOT NULL,
+	"ChapterRelease"	TEXT NOT NULL,
+	PRIMARY KEY("BookChpId","BookId"),
+	FOREIGN KEY("BookId") REFERENCES "Books"("BookId")
 );
 ```
 
@@ -89,10 +89,10 @@ CREATE TABLE "Chapters" (
 ```SQL
 --CREATING THE BOOKMARKS TABLE
 CREATE TABLE "Bookmarks" (
-	"UserId"	INTEGER,
-	"BookId"	INTEGER,
-	"BookChpId"	INTEGER,
-	FOREIGN KEY("UserId") REFERENCES "Users"("UserId")
+	"UserId"	INTEGER NOT NULL,
+	"BookId"	INTEGER NOT NULL,
+	"BookChpId"	INTEGER NOT NULL,
+	FOREIGN KEY("BookId") REFERENCES "Books"("BookId")
 );
 ```
 
@@ -100,8 +100,8 @@ CREATE TABLE "Bookmarks" (
 ```SQL
 -- CREATING THE FAVOURITES TABLE
 CREATE TABLE "Favourites" (
-	"UserId"	INTEGER,
-	"BookId"	INTEGER,
+	"UserId"	INTEGER NOT NULL,
+	"BookId"	INTEGER NOT NULL,
 	FOREIGN KEY("UserId") REFERENCES "Users"("UserId"),
 	FOREIGN KEY("BookId") REFERENCES "Books"("BookId")
 );
