@@ -1,7 +1,6 @@
 {
 
   "tasks": {
-    
     "serve:windows" : "deno --watch --allow-env --allow-ffi --allow-net=0.0.0.0:8000 --allow-read=./assets,C:/Users/emanu/AppData/Local/deno/plug main.js",
     "serve-linux" : "deno --watch --allow-env --allow-ffi --allow-net=0.0.0.0:8000 --allow-read=./assets,/home/fabi/.cache/deno/plug main.js",
     "db-create" : "deno --watch --allow-env --allow-ffi --allow-all ./app/tasks/db-create.js",
