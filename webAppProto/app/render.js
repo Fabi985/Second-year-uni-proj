@@ -17,7 +17,7 @@ export default function render(viewFn, data, status = 200) {
                     <h1>web app</h1>
                     <nav>
                         <a href="/">Home</a>
-                        <a href="/items">about</a>
+                        <a href="/about">about</a>
                     </nav>
                 </header>
                 <main>
