@@ -1,4 +1,4 @@
-import { getRecentlyAddedBooks } from "../models/home.js";
+import { getRecentlyAddedBooks } from "../models/books.js";
 import render from "../render.js";
 import { homeView } from "../views/home.js";
 

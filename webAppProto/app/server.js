@@ -5,6 +5,7 @@ import { homeController } from "./controllers/home.js";
 import { notFoundController } from "./controllers/notFound.js";
 import { profileController } from "./controllers/profile.js";
 import { staticController } from "./controllers/static.js";
+import { singleBookController } from "./controllers/singleBookController.js";
 
 const bookPattern = new URLPattern({pathname:"/catalogue/book/:BookId"});
 
@@ -25,7 +26,8 @@ export default function server(request) {
     }
 
     if (bookPattern.test(url)) {
-        return singleBookController({ request }); // NEED TO CREATE SINGLEBOOKCONTROLLER AND ADD VIEWS AND STUFF
+        const BookId = bookPattern.exec(url).pathname.groups.BookId;
+        return singleBookController({ BookId }); // NEED TO CREATE SINGLEBOOKCONTROLLER AND ADD VIEWS AND STUFF
     }
 
     if (url.pathname =="/help"){

@@ -8,3 +8,11 @@ export function getRecentlyAddedBooks() {
         LIMIT 5;
         `).all();
 }
+
+export function getSpecificBook(BookId) {
+    return db.prepare(`
+        Select BookTitle, BookImage, BookAuthor, BookPublisher, BookAbout, BookSource
+        From Books
+        WHERE BookId = (?);
+        `).all(BookId);
+}
