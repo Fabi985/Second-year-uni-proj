@@ -14,7 +14,7 @@ export default function server(request) {
         return staticController({ request });
     }
 
-    if (url.pathname == "/") {
+    if (url.pathname == "/" && request.method == "GET") {
         return homeController({ request });
     }
 
