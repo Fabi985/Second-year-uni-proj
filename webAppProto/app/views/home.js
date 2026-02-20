@@ -1,11 +1,14 @@
 export function homeView({ books }) {
 
     const listBooks = books.map(book => `
-        <a href="/catalogue/book/${book.BookId}">
-            <img src="/assets/bookCovers/${book.BookImage}">
-            <li>${book.BookTitle}</li>
-        </a>
+        <section id="book">
+            <a href="/catalogue/book/${book.BookId}">
+                <img alt="${book.BookTitle} Cover" src="/assets/bookCovers/${book.BookImage}">
+                <li>${book.BookTitle}</li>
+            </a>
+        </section>
         `).join("\n");
+
     console.log(listBooks);
 
     return `

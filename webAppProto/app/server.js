@@ -6,6 +6,8 @@ import { notFoundController } from "./controllers/notFound.js";
 import { profileController } from "./controllers/profile.js";
 import { staticController } from "./controllers/static.js";
 
+const bookPattern = new URLPattern({pathname:"/catalogue/book/:BookId"});
+
 export default function server(request) {
     const url = new URL(request.url);
     console.log(`\n${request.method} ${url.pathname}${url.searchParams}`);
@@ -20,6 +22,10 @@ export default function server(request) {
 
     if (url.pathname == "/catalogue"){
         return catologueController({ request });
+    }
+
+    if (bookPattern.test(url)) {
+        return singleBookController({ request }); // NEED TO CREATE SINGLEBOOKCONTROLLER AND ADD VIEWS AND STUFF
     }
 
     if (url.pathname =="/help"){
