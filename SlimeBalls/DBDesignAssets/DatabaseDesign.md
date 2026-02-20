@@ -125,7 +125,7 @@ LIMIT 5;
 ## Route('/Catalogue')
 ### Get Books to display
 ```SQL
-SELECT BookTitle, BookImage
+SELECT BookId, BookTitle, BookImage
 FROM Books;
 ```
 ## Route('/Catalogue/:BookID')
