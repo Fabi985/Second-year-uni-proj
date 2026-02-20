@@ -12,9 +12,14 @@ export function singleBookView({ bookData, bookChapterData }) {
         <tr id="chapter">
             <td>${chapter.ChapterName}</td>
             <td>${chapter.ChapterRelease}</td>
-            <td>NOT READ</td>
+            <td>
+                <input type="radio" id="chapterid" name="bookmark" value="chapterid">
+                <label for="chapterid">NOT READ</label><br>
+            </td>
         </tr>
         `).join("\n");
+
+        // Replace the "chapterid" inside radio with the actual chapter id of the chapter
 
     return `
     <section>
