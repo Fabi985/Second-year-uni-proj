@@ -6,6 +6,8 @@ import { notFoundController } from "./controllers/notFound.js";
 import { profileController } from "./controllers/profile.js";
 import { staticController } from "./controllers/static.js";
 import { singleBookController } from "./controllers/singleBookController.js";
+import { signUpController } from "./controllers/signUpController.js";
+import { loginController } from "./controllers/loginController.js";
 
 const bookPattern = new URLPattern({pathname:"/catalogue/book/:BookId"});
 
@@ -27,19 +29,31 @@ export default function server(request) {
 
     if (bookPattern.test(url)) {
         const BookId = bookPattern.exec(url).pathname.groups.BookId;
-        return singleBookController({ BookId }); // NEED TO CREATE SINGLEBOOKCONTROLLER AND ADD VIEWS AND STUFF
+        return singleBookController({ BookId });
     }
 
-    if (url.pathname =="/help"){
+    if (url.pathname == "/help"){
         return helpController({ request });
     }
 
-    if (url.pathname =="/about"){
-        return aboutController({ request })
+    if (url.pathname == "/about"){
+        return aboutController({ request });
     }
 
-    if (url.pathname =="/profile"){
+    if (url.pathname == "/profile"){
         return profileController({ request });
+    }
+
+    if (url.pathname == "/sign-up" && request.method == "GET") {
+        return signUpController({ request });
+    }
+
+    if (url.pathname == "/sign-up" && request.method == "POST") {
+        return signUpController({ request });
+    }
+
+    if (url.pathname == "/login" && request.method == "GET") {
+        return loginController({ request })
     }
 
     return notFoundController( {request} );
