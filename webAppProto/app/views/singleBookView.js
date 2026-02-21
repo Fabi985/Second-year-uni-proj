@@ -13,8 +13,10 @@ export function singleBookView({ bookData, bookChapterData }) {
             <td>${chapter.ChapterName}</td>
             <td>${chapter.ChapterRelease}</td>
             <td>
-                <input type="radio" id="chapterid" name="bookmark" value="chapterid">
-                <label for="chapterid">NOT READ</label><br>
+                <form>
+                    <input type="radio" id="chapterid" name="bookmark" value="${chapter.BookChpId}" onchange="this.form.submit()">
+                    <label for="chapterid">NOT READ</label><br>
+                </form>
             </td>
         </tr>
         `).join("\n");
