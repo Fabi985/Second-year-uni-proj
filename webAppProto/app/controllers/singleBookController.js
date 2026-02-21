@@ -9,5 +9,5 @@ export function singleBookController({ BookId }) {
     // console.log(bookChapterData);
     // console.log(bookData);
 
-    return render(singleBookView, { bookData, bookChapterData });
+    return render(singleBookView, { bookData, bookChapterData }, 200);
 }
