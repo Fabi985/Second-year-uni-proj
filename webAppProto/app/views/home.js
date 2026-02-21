@@ -9,7 +9,7 @@ export function homeView({ books }) {
         </section>
         `).join("\n");
 
-    console.log(listBooks);
+    // console.log(listBooks);
 
     return `
     <section aria-labelledby="home-heading">
