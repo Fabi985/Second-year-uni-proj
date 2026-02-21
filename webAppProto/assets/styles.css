@@ -1,3 +1,10 @@
+/* This helps us with less repetitions and can change colors hella quick
+without looking for each change individually */
+:root {
+    --Primary-bg-color: black;
+    --Header-text-color: white;
+}
+
 body {
     margin: 0;
     display: grid;
@@ -6,8 +13,8 @@ body {
     font-family: system-ui;
     
     header, footer {
-        background: black;
-        color: white;
+        background: var(--Primary-bg-color);
+        color: var(--Header-text-color);
 
         a {
             color: inherit;
