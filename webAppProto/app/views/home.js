@@ -13,11 +13,12 @@ export function homeView({ books }) {
 
     return `
     <section aria-labelledby="home-heading">
-        <h2 id="home-heading">Home Page</h2>
+        <h1 id="home-heading">Home Page</h1>
         <p>This is the home page</p>
         <p>This is for Slimballs</p>
     </section>
     <section aria-label="recently added book selection">
+    <h2>Recently Added:</h2>
         <ul>
             ${listBooks}
         </ul>

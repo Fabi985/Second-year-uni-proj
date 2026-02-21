@@ -1,6 +1,11 @@
+export function bookmark(bookId) {
+    console.log(bookId);
+}
+
 export function singleBookView({ bookData, bookChapterData }) {
 
     // Book Data
+    const bookId = bookData[0].BookId
     const booktitle = bookData[0].BookTitle;
     const bookCover = bookData[0].BookImage;
     const bookAuthor = bookData[0].BookAuthor;
@@ -10,18 +15,17 @@ export function singleBookView({ bookData, bookChapterData }) {
     // Chapter Data
     const chptList = bookChapterData.map(chapter => `
         <tr id="chapter">
-            <td>${chapter.ChapterName}</td>
+            <td>Chapter ${chapter.BookChpId} - ${chapter.ChapterName}</td>
             <td>${chapter.ChapterRelease}</td>
             <td>
-                <form>
-                    <input type="radio" id="chapterid" name="bookmark" value="${chapter.BookChpId}" onchange="this.form.submit()">
+                <form action="catalogue/books/book/${bookId}:${chapter.BookChpId}">
                     <label for="chapterid">NOT READ</label><br>
+                    <input type="button" value="Bookmark chpt ${chapter.BookChpId}" onclick="this.form.submit()"> 
                 </form>
             </td>
         </tr>
         `).join("\n");
-
-        // Replace the "chapterid" inside radio with the actual chapter id of the chapter
+        
 
     return `
     <section>
