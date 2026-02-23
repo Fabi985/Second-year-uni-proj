@@ -133,4 +133,33 @@ background-color: #333333;
   margin-top: 20px;
   margin-bottom: 20px;;
 }
+.imageC {  
+padding: 20px;
+background-color: #333333;
+margin-top: 50px;
+margin-left: 20px
+}
+
+.p2{
+  margin: 0;
+  background-color:#333333;
+  color: white;
+  padding: 5px;
+  width: fit-content;
+  text-align: left;
+  height: 320px;
+}
+p{
+  background-color: #333333;
+  color: white;
+  width: fit-content;
+  text-align: right;
+}
+
+.container2 {
+  display: flex;           /* Arrange items in a row */
+  align-items: center;     /* Vertically center text with image */
+  gap: 10px;               /* Space between image and text */
+}
+
 
