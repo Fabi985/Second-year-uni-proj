@@ -56,5 +56,5 @@ export default function server(request) {
         return loginController({ request })
     }
 
-    return notFoundController( {request} );
+    return notFoundController({ request });
 }

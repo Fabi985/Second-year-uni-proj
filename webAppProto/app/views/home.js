@@ -1,7 +1,7 @@
 export function homeView({ books }) {
 
     const listBooks = books.map(book => `
-        <section id="book">
+        <section id="book" aria-label="books">
             <a href="/catalogue/book/${book.BookId}">
                 <img alt="${book.BookTitle} Cover" src="/assets/bookCovers/${book.BookImage}"/>
                 <li>${book.BookTitle}</li>
@@ -12,16 +12,20 @@ export function homeView({ books }) {
     // console.log(listBooks);
 
     return `
-    <section aria-labelledby="home-heading">
+    <section id="" aria-labelledby="home-heading">
         <h1 id="home-heading">Home Page</h1>
-        <p>This is the home page</p>
-        <p>This is for Slimballs</p>
+        <section id="home-page-body" aria-label="home-page-body">
+            <p>This is the home page</p>
+            <p>This is for Slimballs</p>
+        </section>
     </section>
-    <section aria-label="recently added book selection">
+    <section id="recently-added-books" aria-label="recently-added-books">
     <h2>Recently Added:</h2>
+    <section id="recently-added-books-list" aria-label="recently-added-books-list"
         <ul>
             ${listBooks}
         </ul>
+    </section>
     </section>
     `
 }

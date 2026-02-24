@@ -1,7 +1,7 @@
 export function catalogueView({ books }) {
 
     const listBooks = books.map(book => `
-        <section id="book">
+        <section id="book" aria-label="book">
             <a href="/catalogue/book/${book.BookId}">
                 <img alt="${book.BookTitle} Cover" src="/assets/bookCovers/${book.BookImage}"/>
                 <li>${book.BookTitle}</li>
@@ -10,7 +10,7 @@ export function catalogueView({ books }) {
         `).join("\n");
 
     return `
-    <section aria-label="Catalogue">
+    <section id="catalogue-page" aria-label="catalogue-page">
     <h1>Catalogue:</h1>
         <ul>
             ${listBooks}

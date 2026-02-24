@@ -28,13 +28,13 @@ export function singleBookView({ bookData, bookChapterData }) {
         
 
     return `
-    <section>
+    <section id="book-about" aria-label="book-about">
         <h1>${booktitle}</h1>
         <img src="/assets/bookCovers/${bookCover}"/>
         <p>${bookAuthor}, ${bookPublisher}</p>
         <p>${bookAbout}</p>
     </section>
-    <section>
+    <section id="book-chapters" aria-label="book-chapters">
         <table>
             <tr>
                 <th>Chapter title</th>
