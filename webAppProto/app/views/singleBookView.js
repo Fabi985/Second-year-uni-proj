@@ -25,7 +25,7 @@ export function singleBookView({ bookData, bookChapterData, bookmarkedId }) {
     const bookPublisher = bookData[0].BookPublisher;
     const bookAbout = bookData[0].BookAbout;
 
-    const chapters = [];
+    const chaptersNotJoined = [];
 
     for (const item in bookChapterData) {
         const chapterId = bookChapterData[item].ChapterId;
@@ -47,8 +47,10 @@ export function singleBookView({ bookData, bookChapterData, bookmarkedId }) {
             </tr>
         `;
 
-        chapters.push(chapterSectionHTML);
+        chaptersNotJoined.push(chapterSectionHTML);
     }
+
+    const chapters = chaptersNotJoined.join("\n");
         
 
     return `
