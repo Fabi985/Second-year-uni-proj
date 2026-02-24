@@ -15,9 +15,8 @@ export function signUpView({ request }) {
                 <input type="password" placeholder="Enter Password..." name="pass" required>
 
                 <button type="submit">Sign up</button>
-            </section>
-        </form>
-        <a href="/login">Already have an account?</a>
+            </form>
+             <a href="/login">Already have an account?</a>
     </section>
     `
 }
