@@ -4,7 +4,7 @@ export function signUpView({ request }) {
         <h1>Sign-up</h1>
         <hr>
         <section id="signup-page-form" aria-label="signup-page-form">
-            <form method="POST">
+            <form method="POST" action="/sign-up">
 
                 <label for="username">Username:</label>
                 <input type="text" placeholder="Enter Username..." name="username" required>

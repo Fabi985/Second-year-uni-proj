@@ -5,7 +5,7 @@ export function loginView({ request }) {
         <h1>Login</h1>
             <hr>
         <section id="login-form" aria-label="login-form">
-            <form method="POST">
+            <form method="POST" action="/login">
            
                 <label for="username">Username:</label>
                 <input type="text" placeholder="Enter Username..." name="username" required>
