@@ -1,5 +1,5 @@
 import { aboutController } from "./controllers/about.js";
-import { catologueController, searchedBookController } from "./controllers/catalogue.js";
+import { catologueController, searchRedirectBookController, showSearchedBookController } from "./controllers/catalogue.js";
 import { helpController } from "./controllers/help.js";
 import { homeController } from "./controllers/home.js";
 import { notFoundController } from "./controllers/notFound.js";
@@ -10,6 +10,7 @@ import { signUpController, signUpUserController } from "./controllers/signUpCont
 import { loginController, userLoginController } from "./controllers/loginController.js";
 
 const bookPattern = new URLPattern({pathname:"/catalogue/book/:BookId"});
+const searchBooksPattern = new URLPattern({pathname:"/catalogue/:searchQuery"})
 
 export default function server(request) {
     const url = new URL(request.url);
@@ -28,7 +29,12 @@ export default function server(request) {
     }
 
     if (url.pathname == "/catalogue" && request.method == "POST"){
-        return searchedBookController({ request });
+        return searchRedirectBookController({ request });
+    }
+
+    if (searchBooksPattern.test(url)) {
+        const searchQuery = searchBooksPattern.exec(url).pathname.groups.searchQuery;
+        return showSearchedBookController({ searchQuery })
     }
 
     if (bookPattern.test(url)) {
