@@ -15,6 +15,7 @@ export default function render(viewFn, data, status = 200) {
             <body>
                 <header>
                     <h1>Potential App</h1>
+                    <hr>
                     <nav>
                         <a href="/">Home</a>
                         <a href="/catalogue">catalogue</a>
