@@ -3,9 +3,14 @@ without looking for each change individually */
 :root {
     --Primary-bg-color: #29343d;
     --Header-text-color: white;
+    --secondary-colour:#9a6e6f;
+    --third-colour: #12171b;
+    --fourth-colour: #29343d;
+    --fith-colour: #424361;
 }
 
 body {
+    background: var(--Primary-bg-color);
     margin: 0;
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -42,6 +47,8 @@ body {
 
     footer {
         padding-inline: 1rem;
+        background-color: var(--secondary-colour);
+        color: black;
     }
 
     header {
@@ -50,6 +57,8 @@ body {
         align-items: center;
         flex-wrap: wrap;
         padding-block: 0.5rem;
+        background-color: var(--secondary-colour);
+        color: black;
 
         h1{
             font-weight: 300;
@@ -80,4 +89,10 @@ body {
     footer {
         text-align: right;
     }
+
+    #signup-page-form{
+        text-align: center;
+    }
+    
+
 }

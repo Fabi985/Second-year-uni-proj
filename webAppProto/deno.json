@@ -2,6 +2,7 @@
 
   "tasks": {
     "serve:windows" : "deno --watch --allow-env --allow-ffi --allow-net=0.0.0.0:8000 --allow-read=./assets,C:/Users/emanu/AppData/Local/deno/plug main.js",
+     "serve:windows-gentk" : "deno --watch --allow-env --allow-ffi --allow-net=0.0.0.0:8000 --allow-read=./assets,C:/Users/gentk/AppData/Local/deno/plug main.js",
     "serve-linux" : "deno --watch --allow-env --allow-ffi --allow-net=0.0.0.0:8000 --allow-read=./assets,/home/fabi/.cache/deno/plug main.js",
     "db-create" : "deno --watch --allow-env --allow-ffi ./app/tasks/db-create.js",
     "db-create-insert" : "deno --watch --allow-env --allow-ffi --allow-read ./app/tasks/db-create-insert.js",
