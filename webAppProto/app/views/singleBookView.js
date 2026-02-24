@@ -22,7 +22,7 @@ export function singleBookView({ bookData, bookChapterData }) {
                     <label for="chapterid">NOT READ</label><br>
                     <input type="button" value="Bookmark chpt ${chapter.BookChpId}" onclick="this.form.submit()"> 
                 </form>
-            </td>#
+            </td>
         </tr>
         `).join("\n");
         

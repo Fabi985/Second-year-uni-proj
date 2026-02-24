@@ -23,3 +23,11 @@ export function getSpecificBook(BookId) {
         WHERE BookId = (?);
         `).all(BookId);
 }
+
+export function searchFor(BookTitle) {
+    return db.prepare(`
+        SELECT BookId, BookTitle, BookImage
+        FROM Books
+        WHERE BookTitle like CONCAT('%', ?, '%');
+        `).all(BookTitle);
+}
