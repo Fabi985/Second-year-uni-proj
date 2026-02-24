@@ -12,12 +12,13 @@ export async function signUpUserController({ request }) {
     const username = formData.get("username");
     const password = formData.get("pass");
     const dateCreated = new Date();
+    const userPfp = "Default.png";
 
     console.log("User: " + username);
     console.log("Password: " + password);
     console.log("Date created: " + dateCreated)
 
-    createUser(username, password, dateCreated);
+    createUser(username, password, dateCreated, userPfp);
 
     const headers = new Headers();
     headers.set('location', '/sign-up')
