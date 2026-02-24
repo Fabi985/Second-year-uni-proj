@@ -1,7 +1,7 @@
 export function loginView({ request }) {
     return `
     <section aria-label="login">
-        <form method="POST">
+        <form method="POST" action="/login">
             <h1>Login</h1>
             <hr>
 
