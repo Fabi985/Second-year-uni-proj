@@ -9,24 +9,25 @@ export function catologueController(){
     return render(catalogueView, { books }, 200);
 }
 
-/* 
-Is this function correct?
-At the moment it gets the data the user searched
-Then it queries it in SQL
-then it outputs the book/s similar to it 
-but if you refresh the page it has to resend the data?
-*/
-export async function searchedBookController({ request }){
-    const formData = await request.formData();
-    const searchQuery = formData.get("book-search");
+export function showSearchedBookController({ searchQuery }){
 
     const searchResponse = searchFor(searchQuery);
-    console.log("searched for: " + searchResponse[0].BookTitle);
+    
+    console.log(`searched for similar/contains "${searchQuery}":`);
+    for (const property in searchResponse) {
+        console.log(`${property}: ${searchResponse[property].BookTitle}`);
+    }
 
     const books = searchResponse;
 
     return render(catalogueView, { books }, 200);
-    // const headers = new Headers();
-    // headers.set('location', '/catalogue');
-    // return new Response(null, {headers, status: 303});
+}
+
+export async function searchRedirectBookController({ request }){
+    const formData = await request.formData();
+    const searchQuery = formData.get("book-search");
+
+    const headers = new Headers();
+    headers.set('location', `/catalogue/${searchQuery}`);
+    return new Response(null, {headers, status: 303});
 }
