@@ -2,7 +2,20 @@ export function bookmark(bookId) {
     console.log(bookId);
 }
 
-export function singleBookView({ bookData, bookChapterData }) {
+// Displays what chapter the user has bookmarked
+export function getLabel(chapterId, bookmarkedId) {
+    let ChapterFormLabel = '';
+
+    if (chapterId == bookmarkedId) {
+            return ChapterFormLabel = '<label id="bookmarked" for="chapterid">BOOKMARKED</label>';
+        } else if (chapterId < bookmarkedId) {
+            return ChapterFormLabel = '<label id="success" for="chapterid">READ</label>';
+        } else if (chapterId > bookmarkedId) {
+            return ChapterFormLabel = '<label id="failed" for="chapterid">NOT READ</label>';
+        }
+}
+
+export function singleBookView({ bookData, bookChapterData, bookmarkedId }) {
 
     // Book Data
     const bookId = bookData[0].BookId
@@ -12,19 +25,30 @@ export function singleBookView({ bookData, bookChapterData }) {
     const bookPublisher = bookData[0].BookPublisher;
     const bookAbout = bookData[0].BookAbout;
 
-    // Chapter Data
-    const chptList = bookChapterData.map(chapter => `
-        <tr id="chapter">
-            <td>Chapter ${chapter.BookChpId} - ${chapter.ChapterName}</td>
-            <td>${chapter.ChapterRelease}</td>
-            <td>
-                <form action="catalogue/books/book/${bookId}:${chapter.BookChpId}">
-                    <label for="chapterid">NOT READ</label><br>
-                    <input type="button" value="Bookmark chpt ${chapter.BookChpId}" onclick="this.form.submit()"> 
-                </form>
-            </td>
-        </tr>
-        `).join("\n");
+    const chapters = [];
+
+    for (const item in bookChapterData) {
+        const chapterId = bookChapterData[item].ChapterId;
+        const chapterName = bookChapterData[item].ChapterName;
+        const chapterRelease = bookChapterData[item].ChapterRelease;
+
+        const ChapterFormLabel = getLabel(chapterId, bookmarkedId);
+
+        const chapterSectionHTML = `
+            <tr id="chapter">
+                <td>Chapter ${chapterId} - ${chapterName}</td>
+                <td>${chapterRelease}</td>
+                <td>
+                    <form method="POST" action="bookmark/${bookId}${chapterId}">
+                        ${ChapterFormLabel}
+                        <input type="button" value="Bookmark chpt ${chapterId}" onclick="this.form.submit()"> 
+                    </form>
+                </td>
+            </tr>
+        `;
+
+        chapters.push(chapterSectionHTML);
+    }
         
 
     return `
@@ -41,7 +65,7 @@ export function singleBookView({ bookData, bookChapterData }) {
                 <th>Chapter release</th>
                 <th>Bookmarks</th>
             </tr>
-            ${chptList}
+            ${chapters}
         </table>
     </section>
         `

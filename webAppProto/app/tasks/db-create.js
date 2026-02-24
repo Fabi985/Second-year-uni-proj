@@ -33,11 +33,11 @@ db.exec(`
 
     -- Creates the chapters table
     CREATE TABLE "Chapters" (
-	"BookChpId"	INTEGER NOT NULL,
+	"ChapterId"	INTEGER NOT NULL,
 	"BookId"	INTEGER NOT NULL,
 	"ChapterName"	TEXT NOT NULL,
 	"ChapterRelease"	TEXT NOT NULL,
-	PRIMARY KEY("BookChpId","BookId"),
+	PRIMARY KEY("ChapterId","BookId"),
 	FOREIGN KEY("BookId") REFERENCES "Books"("BookId")
     );
 
@@ -45,7 +45,7 @@ db.exec(`
     CREATE TABLE "Bookmarks" (
 	"UserId"	INTEGER NOT NULL,
 	"BookId"	INTEGER NOT NULL,
-	"BookChpId"	INTEGER NOT NULL,
+	"ChapterId"	INTEGER NOT NULL,
 	FOREIGN KEY("BookId") REFERENCES "Books"("BookId")
     );
 

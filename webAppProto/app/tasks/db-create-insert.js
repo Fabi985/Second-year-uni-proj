@@ -11,7 +11,7 @@ db.exec(`
     (6, 'Demon Slayer: Kimetsu no Yaiba', '2016-02-15', 'A young man sets out to save his sister and avenge his family after a demon attack.', 'Koyoharu Gotouge', 'Viz Media', 'DSCover.jpg', 'Finished', 'NULL');
 
     -- inserts chapter dataset
-    INSERT INTO "Chapters" ("BookChpId","BookId","ChapterName","ChapterRelease") VALUES (1,1,'Ryomen Sukuna','2018-04-07'),
+    INSERT INTO "Chapters" ("ChapterId","BookId","ChapterName","ChapterRelease") VALUES (1,1,'Ryomen Sukuna','2018-04-07'),
     (2,1,'Secret Execution','2018-04-07'),
     (3,1,'For Myself','2018-04-07'),
     (4,1,'Girl of Steel','2018-04-07'),
