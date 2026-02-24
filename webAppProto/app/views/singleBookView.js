@@ -4,7 +4,7 @@ export function bookmark(bookId) {
 
 // Displays what chapter the user has bookmarked
 export function getLabel(chapterId, bookmarkedId) {
-    let ChapterFormLabel = '';
+    let ChapterFormLabel = ''; // IDK why this is here, but trust me dont remove it or it breaks everything ToT.
 
     if (chapterId == bookmarkedId) {
             return ChapterFormLabel = '<label id="bookmarked" for="chapterid">BOOKMARKED</label>';
