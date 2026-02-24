@@ -1,7 +1,7 @@
 export function signUpView({ request }) {
     return `
     <section aria-label="Sign-up">
-        <form method="POST">
+        <form method="POST" action="/sign-up">
             <h1>Sign-up</h1>
             <hr>
 
