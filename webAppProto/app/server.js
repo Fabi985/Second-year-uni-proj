@@ -6,8 +6,8 @@ import { notFoundController } from "./controllers/notFound.js";
 import { profileController } from "./controllers/profile.js";
 import { staticController } from "./controllers/static.js";
 import { singleBookController } from "./controllers/singleBookController.js";
-import { signUpController } from "./controllers/signUpController.js";
-import { loginController } from "./controllers/loginController.js";
+import { signUpController, signUpUserController } from "./controllers/signUpController.js";
+import { loginController, userLoginController } from "./controllers/loginController.js";
 
 const bookPattern = new URLPattern({pathname:"/catalogue/book/:BookId"});
 
@@ -49,12 +49,16 @@ export default function server(request) {
     }
 
     if (url.pathname == "/sign-up" && request.method == "POST") {
-        return signUpController({ request });
+        return signUpUserController({ request });
     }
 
     if (url.pathname == "/login" && request.method == "GET") {
         return loginController({ request })
     }
 
-    return notFoundController( {request} );
+    if (url.pathname == "/login" && request.method == "POST") {
+        return userLoginController({ request })
+    }
+
+    return notFoundController({ request });
 }

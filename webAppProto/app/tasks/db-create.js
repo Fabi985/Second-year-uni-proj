@@ -12,7 +12,8 @@ db.exec(`
 	"UserId"	INTEGER NOT NULL UNIQUE,
 	"Username"	TEXT NOT NULL UNIQUE,
 	"UserPass"	TEXT NOT NULL,
-	"DateCreated"	TEXT NOT NULL,
+	"DateCreated"	BLOB NOT NULL,
+	"UserPfp" TEXT NOT NULL,
 	PRIMARY KEY("UserId" AUTOINCREMENT)
     );
 
