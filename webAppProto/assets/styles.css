@@ -1,11 +1,16 @@
 /* This helps us with less repetitions and can change colors hella quick
 without looking for each change individually */
 :root {
-    --Primary-bg-color: black;
+    --Primary-bg-color: #29343d;
     --Header-text-color: white;
+    --secondary-colour:#9a6e6f;
+    --third-colour: #12171b;
+    --fourth-colour: #29343d;
+    --fith-colour: #424361;
 }
 
 body {
+    background: var(--Primary-bg-color);
     margin: 0;
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -20,23 +25,34 @@ body {
             color: inherit;
         }
     }
-    
-    main,
+    main{
+       
+    }
     footer {
         padding-inline: 1rem;
+        background-color: var(--secondary-colour);
+        color: black;
     }
 
     header {
-        display: flex;
+        display: flow-root;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
         padding-block: 0.5rem;
+        background-color: var(--secondary-colour);
+        color: black;
 
         h1{
             font-weight: 300;
             margin: 0;
         }
+
+        #recently-added-books{
+            background-color: var(--third-colour);   
+        }
+        
+        
 
         nav {
             display: flex;
@@ -53,4 +69,10 @@ body {
     footer {
         text-align: right;
     }
+
+    #signup-page-form{
+        text-align: center;
+    }
+    
+
 }

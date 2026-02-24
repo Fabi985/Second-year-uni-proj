@@ -28,4 +28,6 @@ export function homeView({ books }) {
     </section>
     </section>
     `
+    // still need to fix this broken ass css 
+    // footer and headder done
 }
