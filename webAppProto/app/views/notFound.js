@@ -1,11 +1,10 @@
-export function notFoundView({ request }) {
-
-    const url = new URL(request.url);
-    const badPath = url.pathname
+export function notFoundView(badPath) {
     return `
-    <section aria-label="not found">
+    <section id="not-found-page" aria-label="not-found-page">
         <h2>Not found!</h2>
-        <p>Requested resource (${badPath} ) does not exist.</p>
+        <section id="not-found-page-body" aria-label="not-found-page-body">
+            <p>Requested resource (${badPath} ) does not exist.</p>
+        </section>
     </section>
     `
 }
