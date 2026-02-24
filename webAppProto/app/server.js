@@ -1,5 +1,5 @@
 import { aboutController } from "./controllers/about.js";
-import { catologueController } from "./controllers/catalogue.js";
+import { catologueController, searchedBookController } from "./controllers/catalogue.js";
 import { helpController } from "./controllers/help.js";
 import { homeController } from "./controllers/home.js";
 import { notFoundController } from "./controllers/notFound.js";
@@ -25,6 +25,10 @@ export default function server(request) {
 
     if (url.pathname == "/catalogue" && request.method == "GET"){
         return catologueController({ request });
+    }
+
+    if (url.pathname == "/catalogue" && request.method == "POST"){
+        return searchedBookController({ request });
     }
 
     if (bookPattern.test(url)) {
