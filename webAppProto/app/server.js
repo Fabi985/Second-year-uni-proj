@@ -23,7 +23,7 @@ export default function server(request) {
         return homeController({ request });
     }
 
-    if (url.pathname == "/catalogue"){
+    if (url.pathname == "/catalogue" && request.method == "GET"){
         return catologueController({ request });
     }
 
