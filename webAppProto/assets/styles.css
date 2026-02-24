@@ -25,9 +25,7 @@ body {
             color: inherit;
         }
     }
-    main{
-       
-    }
+    
     footer {
         padding-inline: 1rem;
         background-color: var(--secondary-colour);
