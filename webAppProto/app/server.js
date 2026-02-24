@@ -5,12 +5,13 @@ import { homeController } from "./controllers/home.js";
 import { notFoundController } from "./controllers/notFound.js";
 import { profileController } from "./controllers/profile.js";
 import { staticController } from "./controllers/static.js";
-import { singleBookController } from "./controllers/singleBookController.js";
+import { singleBookController, bookmarkChapterController } from "./controllers/singleBookController.js";
 import { signUpController, signUpUserController } from "./controllers/signUpController.js";
 import { loginController, userLoginController } from "./controllers/loginController.js";
 
 const bookPattern = new URLPattern({pathname:"/catalogue/book/:BookId"});
 const searchBooksPattern = new URLPattern({pathname:"/catalogue/:searchQuery"})
+const bookmarkPattern = new URLPattern({pathname:"/catalogue/book/bookmark/:BookId:ChapterId"})
 
 export default function server(request) {
     const url = new URL(request.url);
@@ -40,6 +41,12 @@ export default function server(request) {
     if (bookPattern.test(url)) {
         const BookId = bookPattern.exec(url).pathname.groups.BookId;
         return singleBookController({ BookId });
+    }
+
+    if (bookmarkPattern.test(url)){
+        const BookId = bookmarkPattern.exec(url).pathname.groups.BookId;
+        const ChapterId = bookmarkPattern.exec(url).pathname.groups.ChapterId;
+        return bookmarkChapterController({ BookId, ChapterId })
     }
 
     if (url.pathname == "/help"){
