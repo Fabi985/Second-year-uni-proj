@@ -2,10 +2,12 @@ export function catalogueView({ books }) {
 
     const listBooks = books.map(book => `
         <section id="book" aria-label="book">
-            <a href="/catalogue/book/${book.BookId}">
-                <img alt="${book.BookTitle} Cover" src="/assets/bookCovers/${book.BookImage}"/>
-                <li>${book.BookTitle}</li>
-            </a>
+            <li>
+                <a href="/catalogue/book/${book.BookId}">
+                    <img alt="${book.BookTitle} Cover" src="/assets/bookCovers/${book.BookImage}"/>
+                    <p>${book.BookTitle}</p>
+                </a>
+            </li>
         </section>
         `).join("\n");
 
