@@ -22,6 +22,7 @@ export default function render(viewFn, data, status = 200) {
                         <a href="/help">Help</a>
                         <a href="/about">about</a>
                         <a href="/sign-up">Sign-up</a>
+                        <a href="/profile">Profile</a>
                     </nav>
                 </header>
                 <main>
