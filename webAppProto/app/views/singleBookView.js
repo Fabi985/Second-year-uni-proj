@@ -16,12 +16,12 @@ export function getLabel(chapterId, bookmarkedId) {
 export function singleBookView({ bookData, bookChapterData, bookmarkedId }) {
 
     // Book Data
-    const bookId = bookData[0].BookId
-    const booktitle = bookData[0].BookTitle;
-    const bookCover = bookData[0].BookImage;
-    const bookAuthor = bookData[0].BookAuthor;
-    const bookPublisher = bookData[0].BookPublisher;
-    const bookAbout = bookData[0].BookAbout;
+    const bookId = bookData.BookId
+    const booktitle = bookData.BookTitle;
+    const bookCover = bookData.BookImage;
+    const bookAuthor = bookData.BookAuthor;
+    const bookPublisher = bookData.BookPublisher;
+    const bookAbout = bookData.BookAbout;
 
     const chaptersNotJoined = [];
 
