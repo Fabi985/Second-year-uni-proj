@@ -1,6 +1,6 @@
 import { getSpecificBook } from "../models/books.js";
 import { getChaptersOfSpecificBook } from "../models/chapters.js";
-import { checkForExistingBookmark, insertBookmark, updateBookmark, checkBookmarks } from "../models/bookmarks.js"
+import { checkForExistingBookmark, insertBookmark, updateBookmark, checkBookmarks, removeBookmark } from "../models/bookmarks.js"
 import render from "../render.js";
 import { singleBookView } from "../views/singleBookView.js";
 
@@ -29,12 +29,18 @@ export function bookmarkChapterController({ BookId, ChapterId }){
     const UserId = 1; // Get user id in session
 
     const bookmarkCheck = checkForExistingBookmark(UserId, BookId);
-    
+
     if (bookmarkCheck == "") {
         insertBookmark(UserId, BookId, ChapterId);
-    }
+    } 
     else if (bookmarkCheck != "") {
-        updateBookmark(ChapterId, UserId, BookId);
+        if (bookmarkCheck[0].ChapterId == ChapterId) {
+            removeBookmark(UserId, BookId, ChapterId);
+        }
+
+        else if (bookmarkCheck[0].ChapterId != ChapterId) {
+            updateBookmark(ChapterId, UserId, BookId);
+        } 
     }
 
     const headers = new Headers();

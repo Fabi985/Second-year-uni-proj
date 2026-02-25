@@ -4,14 +4,12 @@ export function bookmark(bookId) {
 
 // Displays what chapter the user has bookmarked
 export function getLabel(chapterId, bookmarkedId) {
-    let ChapterFormLabel = ''; // IDK why this is here, but trust me dont remove it or it breaks everything ToT.
-
     if (chapterId == bookmarkedId) {
-            return ChapterFormLabel = '<label id="bookmarked" for="chapterid">BOOKMARKED</label>';
+            return `<label id="bookmarked" for="chapterid">BOOKMARKED</label><input type="button" value="Remove Bookmark" onclick="this.form.submit()"> `;
         } else if (chapterId < bookmarkedId) {
-            return ChapterFormLabel = '<label id="success" for="chapterid">READ</label>';
+            return `<label id="success" for="chapterid">READ</label><input type="button" value="Bookmark chpt ${chapterId}" onclick="this.form.submit()"> `;
         } else if (chapterId > bookmarkedId) {
-            return ChapterFormLabel = '<label id="failed" for="chapterid">NOT READ</label>';
+            return `<label id="failed" for="chapterid">NOT READ</label><input type="button" value="Bookmark chpt ${chapterId}" onclick="this.form.submit()"> `;
         }
 }
 
@@ -41,7 +39,6 @@ export function singleBookView({ bookData, bookChapterData, bookmarkedId }) {
                 <td>
                     <form method="POST" action="bookmark/${bookId}${chapterId}">
                         ${ChapterFormLabel}
-                        <input type="button" value="Bookmark chpt ${chapterId}" onclick="this.form.submit()"> 
                     </form>
                 </td>
             </tr>
