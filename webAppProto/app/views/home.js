@@ -2,12 +2,12 @@ export function homeView({ books }) {
 
     const listBooks = books.map(book => `
         <li>
-        <section id="book" aria-label="books">
-            <a href="/catalogue/book/${book.BookId}">
-                <img alt="${book.BookTitle} Cover" src="/assets/bookCovers/${book.BookImage}"/>
-                <p>${book.BookTitle}</p>
-            </a>
-        </section>
+            <section id="book" aria-label="books">
+                <a href="/catalogue/book/${book.BookId}">
+                    <img alt="${book.BookTitle} Cover" src="/assets/bookCovers/${book.BookImage}"/>
+                    <p>${book.BookTitle}</p>
+                </a>
+            </section>
         </li>
         `).join("\n");
 
@@ -27,12 +27,12 @@ export function homeView({ books }) {
         </section>
     </section>
     <section id="recently-added-books" aria-label="recently-added-books">
-    <h2>Recently Added:</h2>
-    <section id="recently-added-books-list" aria-label="recently-added-books-list"
-        <ul>
-            ${listBooks}
-        </ul>
-    </section>
+        <h2>Recently Added:</h2>
+        <section id="books-list" aria-label="recently-added-books-list"
+            <ul>
+                ${listBooks}
+            </ul>
+        </section>
     </section>
     `
     // still need to fix this broken ass css 
