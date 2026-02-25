@@ -21,7 +21,7 @@ export function getSpecificBook(BookId) {
         Select BookId, BookTitle, BookImage, BookAuthor, BookPublisher, BookAbout, BookSource
         From Books
         WHERE BookId = (?);
-        `).all(BookId);
+        `).get(BookId);
 }
 
 export function searchFor(BookTitle) {
