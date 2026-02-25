@@ -9,6 +9,7 @@ export function catologueController(){
     return render(catalogueView, { books }, 200);
 }
 
+// new response for user allows us to display any view with the search
 export function showSearchedBookController({ searchQuery }){
 
     const searchResponse = searchFor(searchQuery);
@@ -23,6 +24,7 @@ export function showSearchedBookController({ searchQuery }){
     return render(catalogueView, { books }, 200);
 }
 
+// This gets the search query and then gets a new response 
 export async function searchRedirectBookController({ request }){
     const formData = await request.formData();
     const searchQuery = formData.get("book-search");
