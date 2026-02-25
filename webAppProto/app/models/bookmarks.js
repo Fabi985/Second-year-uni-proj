@@ -2,7 +2,7 @@ import { db } from "../db.js";
 
 export function checkForExistingBookmark(UserId, BookId) {
     return db.prepare(`
-        SELECT BookId
+        SELECT ChapterId
         FROM Bookmarks
         WHERE UserId = (?) AND BookId = (?);
         `).all(UserId, BookId);
@@ -29,4 +29,11 @@ export function updateBookmark(ChapterId, UserId, BookId) {
         SET ChapterId = (?)
         WHERE UserId = (?) AND BookId = (?);
         `).all(ChapterId, UserId, BookId);
+}
+
+export function removeBookmark(UserId, BookId, ChapterId){
+    return db.prepare(`
+        DELETE FROM Bookmarks
+        WHERE UserId = (?) AND BookId = (?) AND ChapterId = (?);
+        `).all(UserId, BookId, ChapterId);
 }
