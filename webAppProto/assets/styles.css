@@ -119,10 +119,37 @@ body {
         text-align: right;
     }
 
-    #signup-page-form{
-        counter-reset: var(--grey-red-secondary-colour);
-        text-align: center;
-    }
-    
+   #signup-page-form {
+    background-color: #9a6e6f;
+    text-align: center;
+    margin: 100px auto 0;   /* centers the form */
+    padding: 40px 30px;     /* adds spacing */
+    width: 300px;           /* consistent layout */
+    border-radius: 8px;     /* optional: smoother look */
+}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
